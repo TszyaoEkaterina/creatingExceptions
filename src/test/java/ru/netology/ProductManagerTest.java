@@ -48,9 +48,19 @@ class ProductManagerTest {
         manager.add(second);
         manager.add(third);
         manager.add(forth);
-
+        //manager.removeById(5);
         assertThrows(NotFoundException.class,()->{
             manager.removeById(5);
+        });
+    }
+    @Test
+    void shouldThrowExceptionIfAddExistingProduct() {
+        manager.add(first);
+        manager.add(second);
+
+        //manager.add(second);
+        assertThrows(AlreadyExistsException.class, () -> {
+            manager.add(second);
         });
     }
 

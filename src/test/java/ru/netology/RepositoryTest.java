@@ -29,9 +29,29 @@ class RepositoryTest {
         repo.save(second);
         repo.save(third);
         repo.save(forth);
-
+        //repo.removeById(5);
         assertThrows(NotFoundException.class,()->{
             repo.removeById(5);
+        });
+    }
+    @Test
+    void shouldSaveNewProduct(){
+        repo.save(first);
+        repo.save(second);
+
+        repo.save(third);
+        Product[] actual = repo.findAll();
+        Product[] expected = {first, second,third};
+        assertArrayEquals(expected, actual);
+    }
+    @Test
+    void shouldThrowExceptionIfAddExistingProduct() {
+        repo.save(first);
+        repo.save(second);
+
+        //repo.save(second);
+        assertThrows(AlreadyExistsException.class, () -> {
+            repo.save(second);
         });
     }
 }

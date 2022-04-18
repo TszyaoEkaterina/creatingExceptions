@@ -26,6 +26,9 @@ public class Repository {
         return null;
     }
     public void save(Product newProduct) {
+        if (findById(newProduct.getId()) != null){
+            throw new AlreadyExistsException(newProduct.getId());
+        }
         Product[] tmp = new Product[products.length + 1];
         System.arraycopy(products,0,tmp,0,products.length);
         tmp[tmp.length - 1] = newProduct;
