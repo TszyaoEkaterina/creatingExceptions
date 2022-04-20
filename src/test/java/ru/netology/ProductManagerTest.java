@@ -8,8 +8,8 @@ class ProductManagerTest {
     ProductManager manager = new ProductManager();
     Book first = new Book(1, "book", 111, "bookName","Masha");
     Book second = new Book(2, "book", 222, "bookName","Tom");
-    Smartphone third = new Smartphone(3, "smartphone", 333, "smartphoneName", "apple");
-    Smartphone forth = new Smartphone(4, "smartphone", 444, "smartphoneName", "sony");
+    Smartphone third = new Smartphone(3, "smartphone", 333, "smartphoneName", "Apple");
+    Smartphone forth = new Smartphone(4, "smartphone", 444, "smartphoneName", "Sony");
 
     @Test
     void shouldAddWithRepoEmpty() {
